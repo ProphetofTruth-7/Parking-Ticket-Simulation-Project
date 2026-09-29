@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b40203c6-e86a-476e-af10-dec114dec924</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>police_officer.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
