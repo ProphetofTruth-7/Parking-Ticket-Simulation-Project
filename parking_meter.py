@@ -1,4 +1,4 @@
-class parking_meter:
+class ParkingMeter:
     def __init__(self, purchased_parking):
         self.purchased_parking = purchased_parking
 

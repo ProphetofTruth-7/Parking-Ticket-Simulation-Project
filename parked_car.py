@@ -1,6 +1,4 @@
-# Parked Car Class
-
-class parked_car:
+class ParkedCar:
     def __init__(self, make, model, color, license_number, minutes_parked):
         self.make = make
         self.model = model
@@ -48,7 +46,7 @@ class parked_car:
         self._license_number = value
 
     @minutes_parked.setter
-    def model(self,value):
+    def minutes_parked(self,value):
         if not value >= 0:
             raise ValueError("Minutes Parked must be greater than or equal to 0")
         if not isinstance(value, int):
