@@ -1,7 +1,9 @@
 from parking_ticket import ParkingTicket
+from parked_car import ParkedCar
+from parking_meter import ParkingMeter
 
 class PoliceOfficer:
-    def __init__(self, name, badge_number, car: ParkedCar, meter: ParkingMeter):
+    def __init__(self, name, badge_number, car: "ParkedCar", meter: "ParkingMeter"):
         self.name = name
         self.badge_number = badge_number
         self.car = car
@@ -32,4 +34,5 @@ class PoliceOfficer:
             ticket._fine = ticket.calculate_fine()
             return ticket
         else:
+            print (f"AMONGUS")
             return None

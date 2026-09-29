@@ -7,6 +7,14 @@ class ParkingTicket:
     def fine(self):
         return self._fine
 
+    @fine.setter
+    def fine(self,value):
+        if not value >= 0:
+            raise ValueError("Fine must be greater than or equal to 0")
+        if not isinstance(value, int):
+            raise ValueError("Fine must be an Integer")
+        self._fine = value
+
     def calculate_fine(self):   #Since the Parking Ticket object even exists, its assumed that we're already over. No validation neccessary
         fine = 25
         minutes_over = self.officer.car.minutes_parked - self.officer.meter.purchased_parking
