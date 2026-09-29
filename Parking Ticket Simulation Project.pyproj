@@ -4,7 +4,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b40203c6-e86a-476e-af10-dec114dec924</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Parking_Ticket_Simulation_Project.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +22,19 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Parking_Ticket_Simulation_Project.py" />
+    <Compile Include="main.py" />
+    <Compile Include="parked_car.py" />
+    <Compile Include="parking_meter.py" />
+    <Compile Include="parking_ticket.py" />
+    <Compile Include="police_officer.py" />
+    <Compile Include="tests\test_parked_car.py" />
+    <Compile Include="tests\test_parking_meter.py" />
+    <Compile Include="tests\test_parking_ticket.py" />
+    <Compile Include="tests\test_police_officer.py" />
+    <Compile Include="tests\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="tests\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
