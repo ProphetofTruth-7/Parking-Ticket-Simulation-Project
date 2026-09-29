@@ -43,6 +43,8 @@ class ParkedCar:
 
     @license_number.setter
     def license_number(self,value):
+        if not isinstance(value, str):
+            raise ValueError("License Number must be a string")
         self._license_number = value
 
     @minutes_parked.setter
