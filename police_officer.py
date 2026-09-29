@@ -1,3 +1,5 @@
+from parking_ticket import ParkingTicket
+
 class PoliceOfficer:
     def __init__(self, name, badge_number, car: ParkedCar, meter: ParkingMeter):
         self.name = name
@@ -26,6 +28,8 @@ class PoliceOfficer:
 
     def issue_ticket(self):
         if self.car.minutes_parked > self.meter.purchased_parking:
-            #FIGURE OUT LATER
+            ticket = ParkingTicket(self, 0)
+            ticket._fine = ticket.calculate_fine()
+            return ticket
         else:
             return None
