@@ -39,13 +39,13 @@ class ParkedCar:
 
     @color.setter
     def color(self,value):
-        if not isinstance(value, str):
+        if not isinstance(value, str) or not value.strip():
             raise ValueError("Color must be a string")
         self._color = value
 
     @license_number.setter
     def license_number(self,value):
-        if not isinstance(value, str):
+        if not isinstance(value, str) or not value.strip():
             raise ValueError("License Number must be a string")
         self._license_number = value
 

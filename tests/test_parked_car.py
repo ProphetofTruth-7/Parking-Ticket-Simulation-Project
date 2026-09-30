@@ -30,10 +30,22 @@ class TestParkedCar(unittest.TestCase):
     def test_empty_string(self):
         with self.assertRaises(ValueError):
             ParkedCar("", "Solara", "Ruby Red", "Chasin", 60)
+        with self.assertRaises(ValueError):
+            ParkedCar("Toyota", "", "Ruby Red", "Chasin", 60)
+        with self.assertRaises(ValueError):
+            ParkedCar("Toyota", "Solara", "", "Chasin", 60)
+        with self.assertRaises(ValueError):
+            ParkedCar("Toyota", "Solara", "Ruby Red", "", 60)
 
     def test_invalid_string(self):
         with self.assertRaises(ValueError):
             ParkedCar(123, "Solara", "Ruby Red", "Chasin", 60)
+        with self.assertRaises(ValueError):
+            ParkedCar("Toyota", 123, "Ruby Red", "Chasin", 60)
+        with self.assertRaises(ValueError):
+            ParkedCar("Toyota", "Solara", 123, "Chasin", 60)
+        with self.assertRaises(ValueError):
+            ParkedCar("Toyota", "Solara", "Ruby Red", 123, 60)
 
     def test_invalid_minutes_negative(self):
         with self.assertRaises(ValueError):
