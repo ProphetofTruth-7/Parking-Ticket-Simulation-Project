@@ -1,6 +1,9 @@
 "The ParkingTicket class represents a infraction ticket a police officer issues to deliquent vehicles. It is called/created when a PoliceOfficer finds an expired parking meter, and handles the calculation of fines and report collating"
 class ParkingTicket:
     def __init__(self, officer, fine):
+        minute_over = officer.car.minutes_parked - officer.meter.purchased_parking
+        if minute_over <= 0:
+            raise ValueError("Cannot create a Parking Ticket for a car that is not over the purchased parking time")
         self.officer = officer
         self.fine = fine
 
@@ -20,12 +23,15 @@ class ParkingTicket:
     
     "A method that calculates the fine for the ParkingTicket object base don values retrieved from the PoliceOfficer object that created it."
     def calculate_fine(self):   #Since the Parking Ticket object even exists, its assumed that we're already over our purchased time. No validation necessary
-        fine = 25
         minutes_over = self.officer.car.minutes_parked - self.officer.meter.purchased_parking
-        if minutes_over > 60:
-            additional = 1 + ((minutes_over - 60) // 60)
-            fine += (additional * 10)
-        return fine
+
+        if minutes_over <= 0:
+            return 0
+
+        fine = 25
+        additional = (minutes_over - 1) // 60
+        
+        return fine + (additional*10)
 
     "A method that designs how the ParkingTicket object is displayed when printed/returned. This is the collated report with all relevant details"
     def __str__(self): 

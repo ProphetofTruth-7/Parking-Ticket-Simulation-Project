@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>b40203c6-e86a-476e-af10-dec114dec924</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>tests\test_police_officer.py</StartupFile>
+    <StartupFile>tests\test_parking_ticket.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
