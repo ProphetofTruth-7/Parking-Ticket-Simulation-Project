@@ -6,46 +6,49 @@ from unittest.mock import patch
 
 
 class TestParkedCar(unittest.TestCase):
-    def test_default_constructor(self):
-        self.assertEqual(Date().alphabetic_return(), "January 01, 1900")
-    def test_valid_constructor(self):
-        self.assertEqual(Date(2026, 9, 14).alphabetic_return(), "September 14, 2026")
     def setUp(self):
-        self.date = Date(2026, 9, 13)
-        self.datebefore = Date(2026, 8, 4)
+        self.parked_car = ParkedCar("Toyota", "Solara", "Ruby Red", "Chasin", 60)
 
-                                                         # Part 2 Tests
-# Subtraction Tests
-    def test_subtraction_basic(self):
-        self.assertEqual(self.date - self.datebefore, 40)
-        self.assertEqual(self.date - self.dateafter, -43)
-        self.assertEqual(self.date - self.date, 0)
-        self.assertEqual(self.date - self.dateleap, 927)
-    def test_subtraction_invalid_type(self):
-        with self.assertRaises(TypeError):
-            self.date - 5
-# Decrement Tests
-    def test_decrement_single(self):
-        self.date.decrement()
-        self.assertEqual(self.date.alphabetic_return(), "September 12, 2026")
-# Input() Tests
-    @patch("builtins.input", side_effect=["2026", "9", "13"])  #No clue why its written like this, but it basically mimicks a user inputting month(4), day(18), and year(2018)
-    def test_input_valid(self, mock_input):
-        result = Date.from_input()
-        self.assertEqual(result.month, 9)
-        self.assertEqual(result.day, 13)
-        self.assertEqual(result.year, 2026)
-# Invalid Value Tests
-    def test_invalid_month(self):
+    def test_valid_access(self):
+        self.assertEqual(self.parked_car.make, "Toyota")
+        self.assertEqual(self.parked_car.model, "Solara")
+        self.assertEqual(self.parked_car.color, "Ruby Red")
+        self.assertEqual(self.parked_car.license_number, "Chasin")
+        self.assertEqual(self.parked_car.minutes_parked, 60)
+    def test_valid_assignment(self):
+        self.parked_car.make = "Honda"
+        self.parked_car.model = "Civic"
+        self.parked_car.color = "Blue"
+        self.parked_car.license_number = "Runnin"
+        self.parked_car.minutes_parked = 30
+        self.assertEqual(self.parked_car.make, "Honda")
+        self.assertEqual(self.parked_car.model, "Civic")
+        self.assertEqual(self.parked_car.color, "Blue")
+        self.assertEqual(self.parked_car.license_number, "Runnin")
+        self.assertEqual(self.parked_car.minutes_parked, 30)
+
+    def test_empty_string(self):
         with self.assertRaises(ValueError):
-            Date(1900, 13, 1)
-#Setter Tests
-    def test_set_date(self):
-        self.date.set_date(2007, 4, 2)
-        self.assertEqual(self.date.alphabetic_return(), "April 02, 2007")
-    def test_set_invalid_date(self):
+            ParkedCar("", "Solara", "Ruby Red", "Chasin", 60)
+
+    def test_invalid_string(self):
         with self.assertRaises(ValueError):
-            self.date.set_date(2007, 4, 60)
+            ParkedCar(123, "Solara", "Ruby Red", "Chasin", 60)
+
+    def test_invalid_minutes_negative(self):
+        with self.assertRaises(ValueError):
+            ParkedCar("Toyota", "Solara", "Ruby Red", "Chasin", -65)
+    def test_invalid_minutes_float(self):
+        with self.assertRaises(ValueError):
+            ParkedCar("Toyota", "Solara", "Ruby Red", "Chasin", 55.4)
+    def test_zero_minutes(self):
+        self.parked_car = ParkedCar("Toyota", "Solara", "Ruby Red", "Chasin", 0)
+        self.assertEqual(self.parked_car.minutes_parked, 0)
+    def test_valid_minutes(self):
+        self.parked_car = ParkedCar("Toyota", "Solara", "Ruby Red", "Chasin", 60)
+        self.assertEqual(self.parked_car.minutes_parked, 60)
+
+                          
 
 if __name__ == "__main__":
     unittest.main()

@@ -27,13 +27,13 @@ class ParkedCar:
     "Mandatory setter properties for the ParkedCar class' variables, befit with proper validation"
     @make.setter
     def make(self,value):
-        if not isinstance(value, str):
+        if not isinstance(value, str) or not value.strip():
             raise ValueError("Make must be a string")
         self._make = value
 
     @model.setter
     def model(self,value):
-        if not isinstance(value, str):
+        if not isinstance(value, str) or not value.strip():
             raise ValueError("Model must be a string")
         self._model = value
 
