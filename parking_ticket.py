@@ -20,6 +20,7 @@ class ParkingTicket:
         minutes_over = self.officer.car.minutes_parked - self.officer.meter.purchased_parking
         if minutes_over > 60:
             additional = (minutes_over - 60) // 60
+            print (f"Asd: {additional}")
             fine += (additional * 10)
         return fine
 

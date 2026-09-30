@@ -1,9 +1,5 @@
-from parking_ticket import ParkingTicket
-from parked_car import ParkedCar
-from parking_meter import ParkingMeter
-
 class PoliceOfficer:
-    def __init__(self, name, badge_number, car: "ParkedCar", meter: "ParkingMeter"):
+    def __init__(self, name, badge_number, car, meter):
         self.name = name
         self.badge_number = badge_number
         self.car = car
@@ -28,11 +24,12 @@ class PoliceOfficer:
             raise ValueError("Badge Number must be a string")
         self._badge_number = value
 
-    def issue_ticket(self):
+    def issue_ticket(self): #Issue Ticket is properly running
+        from parking_ticket import ParkingTicket
+
         if self.car.minutes_parked > self.meter.purchased_parking:
             ticket = ParkingTicket(self, 0)
-            ticket._fine = ticket.calculate_fine()
+            ticket.fine = ticket.calculate_fine()
             return ticket
         else:
-            print (f"AMONGUS")
             return None
