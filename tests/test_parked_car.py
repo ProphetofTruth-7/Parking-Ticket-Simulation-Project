@@ -1,8 +1,5 @@
-#Unittest File for parked_car.py
-
 import unittest
 from parked_car import ParkedCar
-from unittest.mock import patch
 
 
 class TestParkedCar(unittest.TestCase):
