@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>Parking Ticket Simulation Project</Name>
     <RootNamespace>Parking Ticket Simulation Project</RootNamespace>
+    <TestFramework>unittest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
