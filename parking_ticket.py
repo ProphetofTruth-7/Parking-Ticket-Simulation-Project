@@ -19,10 +19,9 @@ class ParkingTicket:
         fine = 25
         minutes_over = self.officer.car.minutes_parked - self.officer.meter.purchased_parking
         if minutes_over > 60:
-            additional = (minutes_over - 60) // 60
-            print (f"Asd: {additional}")
+            additional = 1 + ((minutes_over - 60) // 60)
             fine += (additional * 10)
         return fine
 
     def __str__(self): 
-        return f"Parking Ticket:\nOfficer: {self.officer.name}\nBadge Number: {self.officer.badge_number}\nCar Make: {self.officer.car.make}\nCar Model: {self.officer.car.model}\nCar Color: {self.officer.car.color}\nLicense Number: {self.officer.car.license_number}\nMinutes Parked: {self.officer.car.minutes_parked}\nMinutes Purchased: {self.officer.meter.purchased_parking}\nMinutes Over: {self.officer.car.minutes_parked - self.officer.meter.purchased_parking}\nFine: ${self.fine}"
+        return f"Parking Ticket:\n\nOfficer: {self.officer.name}\nBadge Number: {self.officer.badge_number}\nCar Make: {self.officer.car.make}\nCar Model: {self.officer.car.model}\nCar Color: {self.officer.car.color}\nLicense Number: {self.officer.car.license_number}\nMinutes Parked: {self.officer.car.minutes_parked}\nMinutes Purchased: {self.officer.meter.purchased_parking}\nMinutes Over: {self.officer.car.minutes_parked - self.officer.meter.purchased_parking}\nFine: ${self.fine}\n"
