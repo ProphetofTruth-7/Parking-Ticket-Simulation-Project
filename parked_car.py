@@ -1,3 +1,4 @@
+"The ParkedCar class represents a driver's car, containing all the pertient information about the vehicle and how long it has been parked. It is used by the PoliceOfficer class to check if a parking ticket needs to be issued"
 class ParkedCar:
     def __init__(self, make, model, color, license_number, minutes_parked):
         self.make = make
@@ -6,6 +7,7 @@ class ParkedCar:
         self.license_number = license_number
         self.minutes_parked = minutes_parked
 
+    "Mandatory getter properties for the ParkedCar class' variables"
     @property
     def make(self):
         return self._make
@@ -22,7 +24,7 @@ class ParkedCar:
     def minutes_parked(self):
         return self._minutes_parked
 
-    
+    "Mandatory setter properties for the ParkedCar class' variables, befit with proper validation"
     @make.setter
     def make(self,value):
         if not isinstance(value, str):
