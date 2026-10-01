@@ -29,7 +29,7 @@ class PoliceOfficer:
         self._badge_number = value
 
     "The issue_ticket function checks if the parked car has exceeded the purchased parking time. If it has, it creates a parking ticket object and calculates the fine, before returning the ticket for printing"
-    def issue_ticket(self): #Issue Ticket is properly running
+    def issue_ticket(self):
         from parking_ticket import ParkingTicket
 
         if self.car.minutes_parked > self.meter.purchased_parking:

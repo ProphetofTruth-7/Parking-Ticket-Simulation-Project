@@ -29,10 +29,10 @@ class TestPoliceOfficer(unittest.TestCase):
 
     def test_correct_car_info(self):
         ticket = self.police_officer.issue_ticket()
-        self.assertEqual(ticket.car.make, "Chevy")
-        self.assertEqual(ticket.car.model, "Mailbu")
-        self.assertEqual(ticket.car.color, "Champagne")
-        self.assertEqual(ticket.car.license_number, "MONGUS")
+        self.assertEqual(ticket.officer.car.make, "Chevy")
+        self.assertEqual(ticket.officer.car.model, "Mailbu")
+        self.assertEqual(ticket.officer.car.color, "Champagne")
+        self.assertEqual(ticket.officer.car.license_number, "MONGUS")
 
 if __name__ == "__main__":
     unittest.main()
